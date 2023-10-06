@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Photo Gallery</title>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img class="demo cursor" src="girl1.jpg" style="width:100%" onclick="currentSlide(1)"
+                alt="Madhavi">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl2.jpg" style="width:100%" onclick="currentSlide(2)"
+                alt="Sukanya">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl3.jpg" style="width:100%" onclick="currentSlide(3)"
+                alt="Ramya">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl4.jpg" style="width:100%" onclick="currentSlide(4)"
+                alt="Bhavana">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl5.jpg" style="width: 100%" onclick="currentSlide(5)"
+                alt="Veneela">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl6.jpg" style="width:100%" onclick="currentSlide(6)"
+                alt="Dhanya">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl7.jpg" style="width:100%" onclick="currentSlide(7)"
+                alt="Vasavi">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl8.jpg" style="width:100%" onclick="currentSlide(8)"
+                alt="Divya">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl9.jpg" style="width: 100%" onclick="currentSlide(9)"
+                alt="Ganga">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="girl10.jpg" style="width:100%" onclick="currentSlide(10)"
+                 alt="Muskan">
+        </div>
+
+    </div>
+    <h2 style="text-align:center"> Photo Gallery </h2>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 10</div>
+            <img src="girl1.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 10</div>
+            <img src="girl2.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 10</div>
+            <img src="girl3.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 10</div>
+            <img src="girl4.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 10</div>
+            <img src="girl5.jpg" style="width: 25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 10</div>
+            <img src="girl6.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 10</div>
+            <img src="girl7.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 10</div>
+            <img src="girl8.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 10</div>
+            <img src="girl9.jpg" style="width:25%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 10</div>
+            <img src="girl10.jpg" style="width:25%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += "active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+
+</body>
+
+</html>
